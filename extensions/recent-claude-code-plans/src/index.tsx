@@ -63,7 +63,7 @@ function getFileIcon(filename: string): Icon {
 export default function Command() {
   const prefs = getPreferenceValues<Preferences>();
   const dir = expandPath(prefs.directory);
-  const limit = Math.max(1, parseInt(prefs.limit, 10) || 10);
+  const limit = Math.max(1, parseInt(prefs.limit || "10", 10));
 
   if (!existsSync(dir)) {
     showToast({
